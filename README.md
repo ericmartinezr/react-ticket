@@ -37,6 +37,14 @@ that post in development I needed ngrox (suggested by Clerk) to redirect it to m
 
 ---
 
+**Diagram**
+
+Not the best diagrama out there but still works
+
+![Diagram](diagram.png)
+
+---
+
 All the images come from different places. There are 20 for 3 possible sizes each, for the responsiveness, but still the original ones may be quite heavy.
 
 - https://www.freepik.com/free-photos-vectors/concert

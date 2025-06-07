@@ -16,9 +16,6 @@ protectedRouter.use(
   })
 );
 
-// https://blog.risingstack.com/building-an-api-gateway-using-nodejs/
-// https://dev.to/techcheck/creating-a-react-node-and-express-app-1ieg
-
 protectedRouter.use(
   '/api/events',
   requireAuth(),

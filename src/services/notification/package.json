@@ -1,0 +1,28 @@
+{
+  "name": "ticket-service",
+  "version": "1.0.0",
+  "description": "Service for managing tickets",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "tickets",
+    "events",
+    "microservice"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "amqplib": "^0.10.8",
+    "express": "^4.18.2",
+    "pdfmake": "^0.2.20",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

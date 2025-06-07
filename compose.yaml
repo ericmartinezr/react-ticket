@@ -1,0 +1,86 @@
+services:
+  server:
+    build:
+      context: ./src/services/api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api-service
+      - ticket-service
+      - events-service
+      - payment-service
+      - notification-service
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    env_file:
+      - .env
+
+  api-service:
+    build:
+      context: ./src/services/webhooks
+      dockerfile: Dockerfile
+    ports:
+      - '3005:3005'
+    environment:
+      - PORT=3005
+    env_file:
+      - .env
+
+  ticket-service:
+    build:
+      context: ./src/services/tickets
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+    environment:
+      - PORT=3001
+    env_file:
+      - .env
+
+  events-service:
+    build:
+      context: ./src/services/events
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3002'
+    environment:
+      - PORT=3002
+    env_file:
+      - .env
+
+  payment-service:
+    build:
+      context: ./src/services/payment
+      dockerfile: Dockerfile
+    ports:
+      - '3003:3003'
+    environment:
+      - PORT=3003
+    env_file:
+      - .env
+
+  notification-service:
+    build:
+      context: ./src/services/notification
+      dockerfile: Dockerfile
+    ports:
+      - '3004:3004'
+    environment:
+      - PORT=3004
+    env_file:
+      - .env
+    volumes:
+      - ./public/tickets:/usr/src/app/tickets
+
+  rabbitmq-service:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+networks:
+  default:
+    driver: bridge
